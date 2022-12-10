@@ -14,14 +14,14 @@ void Zadacha47()
     Console.WriteLine("Введите количество столбцов ");
     int colums = Convert.ToInt32(Console.ReadLine());
 
-    int[,] numbers = new int[rows, colums];
-    FillArray(numbers, -100, 100);
+    double[,] numbers = new double[rows, colums];
+    FillArray(numbers, -5, 10);
     PrintArray(numbers);
 }
 
-void FillArray(int[,] numbers, double minValue = 0, double maxValue = 9)
+void FillArray(double[,] numbers, int minValue, int maxValue)
 {
-    maxValue++;
+    minValue = -minValue;
     Random rand = new Random();
     int rows = numbers.GetLength(0);
     int colums = numbers.GetLength(1);
@@ -29,12 +29,12 @@ void FillArray(int[,] numbers, double minValue = 0, double maxValue = 9)
     {
         for (int j = 0; j < colums; j++)
         {
-            numbers[i, j] = rand.Next(minValue, maxValue);         
+            numbers[i, j] = Math.Round(rand.NextDouble() * maxValue - minValue, 1);
         }
     }
 }
 
-void PrintArray(int[,] numbers)
+void PrintArray(double[,] numbers)
 {
     int rows = numbers.GetLength(0);
     int colums = numbers.GetLength(1);
@@ -42,7 +42,7 @@ void PrintArray(int[,] numbers)
     {
         for (int j = 0; j < colums; j++)
         {
-            Console.Write($"{numbers[i, j]}\t");                  
+            Console.Write($"{numbers[i, j]}\t");
         }
         Console.WriteLine();
     }
