@@ -21,7 +21,12 @@ void Zadacha50()
     Console.WriteLine();
     PrintArray(numbers);
     Console.WriteLine();
-    FindNumber(numbers, 3, 4);
+
+    Console.WriteLine("Введите номер строки ");
+    int valueRows = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите номер столбца ");
+    int valueColums = Convert.ToInt32(Console.ReadLine());
+    FindNumber(numbers, valueRows, valueColums);
 }
 
 void FillArray(int[,] numbers, int minValue = 0, int maxValue = 9)
